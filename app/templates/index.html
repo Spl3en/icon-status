@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+
+    <h1>Servers status</h1>
+    <table cellspacing='0'>
+        <thead>
+            <tr>
+                <th>Server Name</th>
+                <th>Server URL Endpoint</th>
+                <th>Online Status</th>
+                <th>Block Height</th>
+                <th>Total Transactions</th>
+                <th>Unconfirmed Transactions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for server in servers %}
+            <tr>
+                <td>{{server.name}}</td>
+                <td><a href="{{server.url}}/api/v1/status/peer/">{{server.url}}</a></td>
+                {% if server.online == true %}
+                    <td><font color="green"><b>Online</b></td>
+                {% else %}
+                    <td><font color="red"><b>Offline : {{server.reason}}</b></td>
+                {%endif %}
+
+                <td>{{server.block_height}}</td>
+                <td>{{server.total_tx}}</td>
+                <td>{{server.unconfirmed_tx}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
