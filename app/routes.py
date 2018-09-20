@@ -24,4 +24,4 @@ def index():
 
     servers = [ctz, wallet, bicon, test_ctz, iconNet]
 
-    return render_template ('index.html', servers=servers)
+    return render_template ('index.html', constants=constants, servers=servers)
