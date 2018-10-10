@@ -1,5 +1,5 @@
 
-def get_status (status, url, name):
+def status (status, name):
 
     online = "online" in status['status']
     reason = None
@@ -14,6 +14,6 @@ def get_status (status, url, name):
         'block_height' : status['block_height'],
         'total_tx' : status['total_tx'],
         'unconfirmed_tx' : status['unconfirmed_tx'],
-        'url' : url,
+        'url' : status['url'],
         'name' : name
     }

@@ -69,6 +69,13 @@ a:hover {
     padding : 20px;
 }
 
+img.loading-gif{
+  width: 30px;
+  height : 30px;
+  margin : 0px;
+  padding : 0px;
+}
+
 /* ============= FOOTER ============= */
 #footer {
     position: relative;
@@ -82,3 +89,4 @@ a:hover {
     box-shadow: 0 -5px 6px #d1d1d1;
     color : white;
 }
+

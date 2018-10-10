@@ -2,12 +2,14 @@ import requests
 import certifi
 import json
 
-def get_status (server):
+def status (url):
     try:
         path = certifi.where()
-        url = server + "/api/v1/status/peer/"
-        r = requests.get(url, verify=path)
-        return json.loads(r.text)
+        endpoint = url + "/api/v1/status/peer/"
+        r = requests.get(endpoint, verify=path)
+        result = json.loads(r.text)
+        result['url'] = url
+        return result
     except:
         return {
             'status' : 'offline : Endpoint unreachable',
@@ -15,4 +17,5 @@ def get_status (server):
             'block_height' : 'Unknown',
             'total_tx' : 'Unknown',
             'unconfirmed_tx' : 'Unknown',
+            'url' : url,
         }
