@@ -15,9 +15,6 @@
                 }
             `;
 
-            console.log(payload)
-            console.log(payload)
-
             $.ajax ({
                 type : "POST",
                 url : url + "/api/node",
@@ -25,7 +22,6 @@
                 data : payload,
 
                 success : function (request) {
-                    console.log(request);
                     var channelInfo = request['result']['channel_infos'];
                     var channelName = Object.keys(channelInfo)[0]; //
                     var channel = channelInfo[channelName];
@@ -44,6 +40,11 @@
 
                 error : function (error) {
                     console.log (error);
+                    var errmsg = "<font color='red'><b>Error</b></font>"
+                    $("#channel_id_" + channelId).replaceWith(errmsg)
+                    $("#channel_name_" + channelId).replaceWith(errmsg)
+                    $("#channel_peers_count_" + channelId).replaceWith(errmsg)
+                    $("#channel_peers_endpoint_" + channelId).replaceWith(errmsg)
                 }
             });
         }
