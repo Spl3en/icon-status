@@ -67,7 +67,7 @@
         {% for server in servers %}
             <tr>
                 <td>{{server.name}}</td>
-                <td><a href="{{server.url}}/api/v1/status/peer/">{{server.url}}</a></td>
+                <td><a href="http://icontracker.spl3en.com/set_nid/{{loop.index-1}}">{{server.url}}</a></td>
                 {% if server.online == true %}
                     <td><font color="green"><b>Online</b></font></td>
                 {% else %}
