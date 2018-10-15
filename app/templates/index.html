@@ -84,7 +84,7 @@
 
     {% for server in servers %}
         <hr>
-        <h2>{{server.name}} - {{server.url}}</h2>
+        <h2>{{server.name}} - <a href="http://icontracker.spl3en.com/set_nid/{{loop.index-1}}">{{server.url}}</a></h2>
         <table cellspacing='0'>
             <thead>
                 <tr>
